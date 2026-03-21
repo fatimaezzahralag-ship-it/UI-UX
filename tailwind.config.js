@@ -1,48 +1,49 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Syne', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      },
-      colors: {
-        brand: {
-          50:  '#f0fdf9',
-          100: '#ccfbef',
-          200: '#99f6e0',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6',
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
+    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Manrope', 'sans-serif'],
+                display: ['Fraunces', 'serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+                brand: {
+                    50: '#eef5fc',
+                    100: '#dbe9f7',
+                    200: '#bdd5ef',
+                    300: '#90b9e3',
+                    400: '#5f95d2',
+                    500: '#2f74bc',
+                    600: '#1e5f9f',
+                    700: '#164a7d',
+                    800: '#123a61',
+                    900: '#0f2c45',
+                },
+                ink: {
+                    50: '#f8fafc',
+                    100: '#eef2f7',
+                    200: '#d8e0ea',
+                    300: '#bcc9d8',
+                    400: '#95a6ba',
+                    500: '#74879d',
+                    600: '#5c6f86',
+                    700: '#4a5a6f',
+                    800: '#374457',
+                    900: '#253245',
+                    950: '#121c2d',
+                }
+            },
+            borderRadius: {
+                '4xl': '2rem',
+            },
+            boxShadow: {
+                'hard': '0 12px 32px rgba(17, 28, 45, 0.16)',
+                'hard-sm': '0 6px 18px rgba(17, 28, 45, 0.12)',
+                'hard-brand': '0 14px 28px rgba(15, 76, 129, 0.28)',
+            }
         },
-        ink: {
-          50:  '#f8f7f4',
-          100: '#f0ede6',
-          200: '#e2ddd3',
-          300: '#cdc5b7',
-          400: '#b0a492',
-          500: '#948776',
-          600: '#7a6e60',
-          700: '#635a4f',
-          800: '#504844',
-          900: '#403b36',
-          950: '#1c1917',
-        }
-      },
-      borderRadius: {
-        '4xl': '2rem',
-      },
-      boxShadow: {
-        'hard': '4px 4px 0px 0px #1c1917',
-        'hard-sm': '2px 2px 0px 0px #1c1917',
-        'hard-brand': '4px 4px 0px 0px #0d9488',
-      }
     },
-  },
-  plugins: [],
+    plugins: [],
 };

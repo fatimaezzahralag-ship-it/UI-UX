@@ -1,31 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
-  html { font-family: 'Syne', sans-serif; }
-  body { @apply bg-ink-50 text-ink-700 antialiased; }
-  h1, h2, h3, h4, h5, h6 { @apply text-ink-950 font-bold tracking-tight; }
-  * { box-sizing: border-box; }
+    html {
+        font-family: 'Manrope', sans-serif;
+    }
+    body {
+        @apply text-ink-700 antialiased;
+        background: radial-gradient(circle at 10% 0%, rgba(177, 146, 53, 0.10), transparent 35%), radial-gradient(circle at 90% 10%, rgba(12, 44, 83, 0.14), transparent 40%), linear-gradient(180deg, #f7f9fc 0%, #f2f5f9 100%);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-ink-950 tracking-tight;
+        font-family: 'Fraunces', serif;
+    }
+    * {
+        box-sizing: border-box;
+    }
 }
 
 @layer components {
-  .card { @apply bg-white border-2 border-ink-950 rounded-2xl shadow-hard; }
-  .card-sm { @apply bg-white border-2 border-ink-950 rounded-xl shadow-hard-sm; }
-  .btn-primary { @apply bg-brand-500 text-white border-2 border-ink-950 shadow-hard-sm rounded-xl font-bold px-4 py-2 transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none; }
-  .btn-outline { @apply bg-white text-ink-900 border-2 border-ink-950 shadow-hard-sm rounded-xl font-bold px-4 py-2 transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none; }
-  .btn-ghost { @apply bg-transparent text-ink-700 border-2 border-transparent rounded-xl font-semibold px-4 py-2 transition-all hover:border-ink-200 hover:bg-ink-50; }
-  .tag { @apply inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-bold border-2 border-ink-950; }
-  .input-field { @apply w-full bg-ink-50 border-2 border-ink-950 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 placeholder:text-ink-400; }
-  .nav-link { @apply flex items-center gap-3 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-150 text-ink-600 hover:text-ink-900 hover:bg-ink-100; }
-  .nav-link-active { @apply flex items-center gap-3 px-4 py-2.5 rounded-xl font-bold text-sm bg-brand-500 text-white; }
-  .section-header { @apply text-xs font-bold uppercase tracking-widest text-ink-400 mb-2; }
-  .stat-card { @apply card p-5 flex flex-col gap-2; }
+    .card {
+        @apply bg-white/95 border border-ink-200 rounded-2xl;
+        box-shadow: 0 10px 30px rgba(15, 44, 83, 0.08), 0 2px 8px rgba(18, 28, 45, 0.05);
+        backdrop-filter: blur(2px);
+        animation: fade-up 260ms ease-out;
+    }
+    .card-sm {
+        @apply bg-white/95 border border-ink-200 rounded-xl;
+        box-shadow: 0 6px 18px rgba(15, 44, 83, 0.08), 0 1px 4px rgba(18, 28, 45, 0.05);
+    }
+    .btn-primary {
+        @apply text-white rounded-xl font-bold px-4 py-2 transition-all;
+        background: linear-gradient(135deg, #0f4c81 0%, #1a6ba6 100%);
+        border: 1px solid #0f4c81;
+        box-shadow: 0 6px 18px rgba(15, 76, 129, 0.32);
+    }
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px rgba(15, 76, 129, 0.35);
+    }
+    .btn-outline {
+        @apply bg-white text-ink-900 rounded-xl font-bold px-4 py-2 transition-all;
+        border: 1px solid #cfd7e3;
+        box-shadow: 0 4px 12px rgba(18, 28, 45, 0.08);
+    }
+    .btn-outline:hover {
+        border-color: #0f4c81;
+        color: #0f4c81;
+    }
+    .btn-ghost {
+        @apply bg-transparent text-ink-700 border border-transparent rounded-xl font-semibold px-4 py-2 transition-all;
+    }
+    .btn-ghost:hover {
+        border-color: #d8e0ea;
+        background: #ffffff;
+    }
+    .tag {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-bold border border-ink-300;
+    }
+    .input-field {
+        @apply w-full rounded-xl px-4 py-2.5 text-sm font-medium transition-all;
+        background: #f7f9fc;
+        border: 1px solid #d4deea;
+    }
+    .input-field::placeholder {
+        color: #95a6ba;
+    }
+    .input-field:focus {
+        outline: none;
+        border-color: #0f4c81;
+        box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.12);
+    }
+    .nav-link {
+        @apply flex items-center gap-3 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-150 text-ink-600;
+    }
+    .nav-link:hover {
+        color: #121c2d;
+        background: #ffffff;
+    }
+    .nav-link-active {
+        @apply flex items-center gap-3 px-4 py-2.5 rounded-xl font-bold text-sm text-white;
+        background: linear-gradient(135deg, #0f4c81 0%, #1b6da8 100%);
+        box-shadow: 0 8px 18px rgba(15, 76, 129, 0.3);
+    }
+    .section-header {
+        @apply text-xs font-bold uppercase tracking-widest text-ink-400 mb-2;
+    }
+    .stat-card {
+        @apply card p-5 flex flex-col gap-2;
+    }
 }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { @apply bg-ink-300 rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-ink-500; }
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-500;
+}
+
+
+/* Global mobile rescue layer for pages using fixed desktop utility classes */
+
+@media (max-width: 767px) {
+    .ml-\[240px\] {
+        margin-left: 0 !important;
+    }
+    .p-6 {
+        padding: 1rem !important;
+    }
+    .max-w-7xl,
+    .max-w-6xl,
+    .max-w-5xl,
+    .max-w-4xl,
+    .max-w-3xl,
+    .max-w-2xl {
+        max-width: 100% !important;
+    }
+    .grid-cols-3,
+    .grid-cols-4,
+    .grid-cols-5,
+    .grid-cols-6,
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+    .card {
+        border-radius: 1rem;
+    }
+}

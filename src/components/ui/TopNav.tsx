@@ -38,10 +38,10 @@ export function TopNav() {
   const [notifOpen, setNotifOpen] = useState(false);
 
   return (
-    <header className="h-16 bg-white border-b-2 border-ink-950 flex items-center justify-between px-6 sticky top-0 z-10">
-      <div>
-        <h2 className="text-base font-extrabold text-ink-950 leading-none">{info.title}</h2>
-        {info.subtitle && <p className="text-xs text-ink-400 mt-0.5 font-medium">{info.subtitle}</p>}
+    <header className="min-h-16 bg-white/90 border-b border-ink-200 flex items-center justify-between px-4 md:px-6 pl-16 md:pl-6 py-2 sticky top-0 z-10 backdrop-blur">
+      <div className="min-w-0">
+        <h2 className="text-sm md:text-base font-extrabold text-ink-950 leading-none truncate">{info.title}</h2>
+        {info.subtitle && <p className="text-[11px] md:text-xs text-ink-500 mt-0.5 font-medium truncate">{info.subtitle}</p>}
       </div>
 
       <div className="flex items-center gap-3">
@@ -59,14 +59,14 @@ export function TopNav() {
         <div className="relative">
           <button
             onClick={() => setNotifOpen(!notifOpen)}
-            className="relative p-2 border-2 border-ink-200 rounded-xl hover:border-ink-950 transition-colors bg-white"
+            className="relative p-2 border border-ink-200 rounded-xl hover:border-brand-500 transition-colors bg-white shadow-sm"
           >
             <Bell size={16} className="text-ink-600" />
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
           </button>
           {notifOpen && (
-            <div className="absolute right-0 top-12 w-80 bg-white border-2 border-ink-950 rounded-2xl shadow-hard z-50 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 border-b-2 border-ink-200">
+            <div className="absolute right-0 top-12 w-[92vw] max-w-80 bg-white border border-ink-200 rounded-2xl shadow-hard z-50 overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-ink-200">
                 <span className="font-bold text-sm text-ink-950">Notifications</span>
                 <button onClick={() => setNotifOpen(false)}><X size={14} className="text-ink-400" /></button>
               </div>
